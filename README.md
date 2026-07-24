@@ -130,7 +130,8 @@ You can add more tests in `tests/test_recommender.py`.
         • energy 0.84 vs target 0.80 (+0.96)
         • electronic feel (0.14), as you like (+0.43)
 
-============================================================```
+============================================================
+```
 
 **Screenshot or video** *(optional)*: <!-- Insert a screenshot or demo video link here -->
 
