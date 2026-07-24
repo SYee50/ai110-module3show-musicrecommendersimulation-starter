@@ -2,22 +2,13 @@
 
 ## Project Summary
 
-In this project you will build and explain a small music recommender system.
-
-Your goal is to:
-
-- Represent songs and a user "taste profile" as data
-- Design a scoring rule that turns that data into recommendations
-- Evaluate what your system gets right and wrong
-- Reflect on how this mirrors real world AI recommenders
-
-Replace this paragraph with your own summary of what your version does.
+My version, SongFinder 1.0, is a small music recommender. It represents each song and a user's taste profile as data, then uses a scoring rule to suggest the songs that best fit that profile. Each song is scored on four features: genre, mood, energy, and acoustic feel. The songs are ranked so the closest matches rise to the top five. Every recommendation comes with a short "why this song" explanation showing exactly which features earned points.
 
 ---
 
 ## How The System Works
 
-Real world music recommendation systems generally combine collaborative filtering, which learns from the listening habits of users with similar music taste, and content-based filtering, which recommends songs with similar characteristics. For my music recommender, I plan to use content-based filtering by utilizing a song's genre, energy, mood, and acousticness. These features help describe the overall characteristics of a song, allowing my system to recommend music that closely matches a user's preferences.
+Real world music recommendation systems generally combine collaborative filtering, which learns from the listening habits of users with similar music taste, and content-based filtering, which recommends songs with similar characteristics. Spotify, for example, blends both. It draws on a user's listening history and the habits of similar listeners (collaborative filtering) while also analyzing audio features like genre, tempo, energy, and mood (content-based filtering). For my music recommender, I plan to use content-based filtering by utilizing a song's genre, energy, mood, and acousticness. These features help describe the overall characteristics of a song, allowing my system to recommend music that closely matches a user's preferences.
 
 - What features does each `Song` use in your system
   - Each song will have a genre, mood, energy, and acousticness
