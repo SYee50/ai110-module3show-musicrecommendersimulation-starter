@@ -46,6 +46,149 @@ The results showed a few things I did not expect. The energy 5.0 profile produce
 
 Comparing the three normal profiles against each other shows the preferences are testing for what they should. High-Energy Pop vs. Chill Lofi is the greatest differing profiles. The pop profile returns bright, electronic, high-energy tracks ("Sunrise City," "Gym Hero," energy 0.82–0.93, acousticness under 0.20), while the lofi profile shifts entirely to calm, acoustic tracks ("Library Rain," "Midnight Coding," energy 0.35–0.42, acousticness above 0.70). This makes sense because the two profiles ask for opposite genres, opposite energy targets, and opposite acoustic preferences, so almost none of their scoring signals overlap. High-Energy Pop vs. Deep Intense Rock is a subtler comparison: both want high energy (0.9 vs. 0.95) and non-acoustic songs, so they share "Gym Hero" in their top three, but the genre and mood terms still pull them apart — pop puts the happy pop song first while rock puts "Storm Runner" (rock/intense) first. Chill Lofi vs. Deep Intense Rock is the most extreme pair, with zero overlap in their results, because low-energy acoustic and high-energy electronic sit at opposite ends of every feature the model scores. Overall these differences look valid. Profiles that differ on many features produce completely different lists, and profiles that share a feature (like high energy) overlap only on the songs that satisfy that shared feature.
 
+The outputs for the three normal profiles are shown below.
+
+```
+============================================================
+                     🎵  MUSIC RECOMMENDER                   
+============================================================
+  Profile: High-Energy Pop
+  Loaded 20 songs from the catalog.
+  Your profile: genre=pop, mood=happy, energy=0.9, likes_acoustic=False
+------------------------------------------------------------
+  Top 5 recommendations:
+============================================================
+
+  #1  Sunrise City  —  Neon Echo
+      pop · happy      Score: 4.33 / 4.5
+      Why this song:
+        • genre match (pop) (+2.0)
+        • mood match (happy) (+1.0)
+        • energy 0.82 vs target 0.90 (+0.92)
+        • electronic feel (0.18), as you like (+0.41)
+
+  #2  Gym Hero  —  Max Pulse
+      pop · intense      Score: 3.44 / 4.5
+      Why this song:
+        • genre match (pop) (+2.0)
+        • energy 0.93 vs target 0.90 (+0.97)
+        • electronic feel (0.05), as you like (+0.47)
+
+  #3  Rooftop Lights  —  Indigo Parade
+      indie pop · happy      Score: 2.19 / 4.5
+      Why this song:
+        • mood match (happy) (+1.0)
+        • energy 0.76 vs target 0.90 (+0.86)
+        • electronic feel (0.35), as you like (+0.33)
+
+  #4  Storm Runner  —  Voltline
+      rock · intense      Score: 1.44 / 4.5
+      Why this song:
+        • energy 0.91 vs target 0.90 (+0.99)
+        • electronic feel (0.10), as you like (+0.45)
+
+  #5  Pulse Reactor  —  Volt Cascade
+      edm · uplifting      Score: 1.43 / 4.5
+      Why this song:
+        • energy 0.95 vs target 0.90 (+0.95)
+        • electronic feel (0.04), as you like (+0.48)
+
+============================================================
+
+============================================================
+                     🎵  MUSIC RECOMMENDER                   
+============================================================
+  Profile: Chill Lofi
+  Loaded 20 songs from the catalog.
+  Your profile: genre=lofi, mood=chill, energy=0.35, likes_acoustic=True
+------------------------------------------------------------
+  Top 5 recommendations:
+============================================================
+
+  #1  Library Rain  —  Paper Lanterns
+      lofi · chill      Score: 4.43 / 4.5
+      Why this song:
+        • genre match (lofi) (+2.0)
+        • mood match (chill) (+1.0)
+        • energy 0.35 vs target 0.35 (+1.00)
+        • acoustic feel (0.86), as you like (+0.43)
+
+  #2  Midnight Coding  —  LoRoom
+      lofi · chill      Score: 4.29 / 4.5
+      Why this song:
+        • genre match (lofi) (+2.0)
+        • mood match (chill) (+1.0)
+        • energy 0.42 vs target 0.35 (+0.93)
+        • acoustic feel (0.71), as you like (+0.35)
+
+  #3  Focus Flow  —  LoRoom
+      lofi · focused      Score: 3.34 / 4.5
+      Why this song:
+        • genre match (lofi) (+2.0)
+        • energy 0.40 vs target 0.35 (+0.95)
+        • acoustic feel (0.78), as you like (+0.39)
+
+  #4  Spacewalk Thoughts  —  Orbit Bloom
+      ambient · chill      Score: 2.39 / 4.5
+      Why this song:
+        • mood match (chill) (+1.0)
+        • energy 0.28 vs target 0.35 (+0.93)
+        • acoustic feel (0.92), as you like (+0.46)
+
+  #5  Coffee Shop Stories  —  Slow Stereo
+      jazz · relaxed      Score: 1.43 / 4.5
+      Why this song:
+        • energy 0.37 vs target 0.35 (+0.98)
+        • acoustic feel (0.89), as you like (+0.45)
+
+============================================================
+
+============================================================
+                     🎵  MUSIC RECOMMENDER                   
+============================================================
+  Profile: Deep Intense Rock
+  Loaded 20 songs from the catalog.
+  Your profile: genre=rock, mood=intense, energy=0.95, likes_acoustic=False
+------------------------------------------------------------
+  Top 5 recommendations:
+============================================================
+
+  #1  Storm Runner  —  Voltline
+      rock · intense      Score: 4.41 / 4.5
+      Why this song:
+        • genre match (rock) (+2.0)
+        • mood match (intense) (+1.0)
+        • energy 0.91 vs target 0.95 (+0.96)
+        • electronic feel (0.10), as you like (+0.45)
+
+  #2  Gym Hero  —  Max Pulse
+      pop · intense      Score: 2.46 / 4.5
+      Why this song:
+        • mood match (intense) (+1.0)
+        • energy 0.93 vs target 0.95 (+0.98)
+        • electronic feel (0.05), as you like (+0.47)
+
+  #3  Pulse Reactor  —  Volt Cascade
+      edm · uplifting      Score: 1.48 / 4.5
+      Why this song:
+        • energy 0.95 vs target 0.95 (+1.00)
+        • electronic feel (0.04), as you like (+0.48)
+
+  #4  Iron Requiem  —  Ashen Throne
+      metal · aggressive      Score: 1.46 / 4.5
+      Why this song:
+        • energy 0.98 vs target 0.95 (+0.97)
+        • electronic feel (0.03), as you like (+0.48)
+
+  #5  Groove Machine  —  The Funk Syndicate
+      funk · triumphant      Score: 1.32 / 4.5
+      Why this song:
+        • energy 0.84 vs target 0.95 (+0.89)
+        • electronic feel (0.14), as you like (+0.43)
+
+============================================================
+```
+
 ---
 
 ## 8. Future Work  
